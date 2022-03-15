@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="camera-div">
+        <camera ref="camera" deviceposition="back" ></camera>
+    </div>
+    <div class="footer-div">
+        <button>相册</button>
+    </div>
+
+</div>

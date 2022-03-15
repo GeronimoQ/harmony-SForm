@@ -1,0 +1,18 @@
+{
+  "strings": {
+    "hello": "Hello",
+    "world": "World",
+    "start": "start use",
+    "undefined": "widget is undefined"
+  },
+  "form": {
+    "task": {
+      "label": {
+        "taskName": "TaskName",
+        "taskId": "TaskId",
+        "taskInstr": "Introduction",
+        "submit":"submit"
+      }
+    }
+  }
+}

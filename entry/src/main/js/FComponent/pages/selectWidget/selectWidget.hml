@@ -1,0 +1,16 @@
+<div class="widget-container">
+
+    <div class="label">
+
+        <label target="{{ widgetConfig.id }}">
+            {{ widgetConfig.options.label }}
+        </label>
+
+        <select class="label-fill-widget" onchange="selectChange">
+            <option for="{{option in widgetConfig.options.optionItems}}" tid="{{$idx}}" value="{{option.value}}">
+                {{option.value}}
+            </option>
+        </select>
+    </div>
+
+</div>

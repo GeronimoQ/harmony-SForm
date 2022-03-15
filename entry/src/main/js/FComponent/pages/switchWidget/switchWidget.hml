@@ -1,0 +1,18 @@
+<div class="widget-container">
+
+    <div class="label">
+
+        <label target="{{ widgetConfig.id }}">
+            {{ widgetConfig.options.label }}
+        </label>
+
+        <switch class="label-fill-widget" onchange="switchChange" texton="{{widgetConfig.options.activeText}}" textoff="{{widgetConfig.options.inactiveText}}">
+        </switch>
+    </div>
+
+
+
+
+
+
+</div>

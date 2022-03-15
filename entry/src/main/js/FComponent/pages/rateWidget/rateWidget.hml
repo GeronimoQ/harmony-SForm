@@ -1,0 +1,12 @@
+<div class="widget-container">
+
+    <div class="label">
+        <label target="{{ widgetConfig.id }}">
+            {{ widgetConfig.options.label }}
+        </label>
+
+        <rating class="label-fill-widget" onchange="rateChange" numstars="{{widgetConfig.options.max}}" rating="{{widgetConfig.options.defaultValue}}" >
+
+        </rating>
+    </div>
+</div>

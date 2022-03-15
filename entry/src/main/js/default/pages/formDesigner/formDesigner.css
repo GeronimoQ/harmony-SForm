@@ -1,0 +1,46 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/* xxx.css */
+
+.panel-div {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+.inner-card {
+    width: 100%;
+}
+
+.form-widget{
+    margin-bottom: 40px;
+    flex-shrink: 1;
+    overflow: auto;
+}
+.bottom-info{
+    flex-direction: column;
+    justify-content:flex-end ;
+    flex-shrink: 0;
+    bottom: 0px;
+}
+
+
+
+.inner-btn {
+    padding-bottom: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items:center;
+    background-color: #e9d7df;
+}
+
+.inner-btn button{
+    width: 70%;
+}

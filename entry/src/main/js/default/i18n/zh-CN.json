@@ -1,0 +1,18 @@
+{
+  "strings": {
+    "hello": "您好",
+    "world": "世界",
+    "start": "开始使用",
+    "undefined": "该组件无法被展示"
+  },
+  "form": {
+    "task": {
+      "label": {
+        "taskName": "任务名",
+        "taskId": "任务ID",
+        "taskInstr": "简介",
+        "submit":"提交"
+      }
+    }
+  }
+}

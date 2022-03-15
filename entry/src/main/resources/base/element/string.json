@@ -1,0 +1,48 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "二维码"
+    },
+    {
+      "name": "description",
+      "value": "Feature Ability"
+    },
+    {
+      "name": "entry_MainAbility",
+      "value": "entry_MainAbility"
+    },
+    {
+      "name": "mainability_description",
+      "value": "JS_Empty Ability"
+    },
+    {
+      "name": "qrcodehandlerability_description",
+      "value": "hap sample empty service"
+    },
+    {
+      "name": "scanningability_description",
+      "value": "JS_Empty Ability"
+    },
+    {
+      "name": "entry_ScanningAbility",
+      "value": "entry_ScanningAbility"
+    },
+    {
+      "name": "scanningqrability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "scanningqrability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ScanningQRAbility",
+      "value": "entry_ScanningQRAbility"
+    },
+    {
+      "name": "qrscanningserviceability_description",
+      "value": "hap sample empty service"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<div class="container">
+
+    <button @click="start_button">
+        {{$t('strings.start')}}
+    </button>
+
+
+</div>

@@ -1,0 +1,9 @@
+<div class="widget-container" >
+    <label class="label" target="{{ widgetConfig.id }}">
+        {{ widgetConfig.options.label }}
+    </label>
+
+    <div class="fill-widget" >
+        <textarea placeholder="{{widgetConfig.options.placeholder}}" value="{{widgetInfo.value}}" showcounter="true" extend="true" onchange="submitValue"></textarea>
+    </div >
+</div>

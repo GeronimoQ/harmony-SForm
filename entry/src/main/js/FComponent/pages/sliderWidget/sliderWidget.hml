@@ -1,0 +1,19 @@
+<div class="widget-container">
+    <div class="label">
+        <label target="{{ widgetConfig.id }}">
+            {{ widgetConfig.options.label }}
+        </label>
+    </div>
+    <div class="fill-widget">
+
+        <input type="number" style="width : 20%; height : 40px; text-align : center;" value="{{ widgetInfo.value }}">
+        </input>
+        <slider id="slider-widget" style="width : 80%; padding : 10px;" max="{{ widgetConfig.options.max }}"
+                min="{{ widgetConfig.options.min }}" step="{{ widgetConfig.options.step }}"
+                showsteps="true" showtips="true" onchange="sliderChange">
+
+        </slider>
+    </div>
+
+
+</div>

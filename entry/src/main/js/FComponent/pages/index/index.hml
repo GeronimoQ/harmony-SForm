@@ -1,0 +1,55 @@
+<element name="unknowWidget" src="../unknowWidget/unknowWidget.hml">
+</element>
+
+<element name="FInput" src="../inputWidget/inputWidget.hml"></element>
+<element name="FTextarea" src="../textareaWidget/textareaWidget.hml"></element>
+<element name="FSelect" src="../selectWidget/selectWidget.hml"></element>
+<element name="FSwitch" src="../switchWidget/switchWidget.hml"></element>
+<element name="FRate" src="../rateWidget/rateWidget.hml"></element>
+<element name="FStaticText" src="../staticTextWidget/staticTextWidget.hml"></element>
+<element name="FSlider" src="../sliderWidget/sliderWidget.hml"></element>
+<element name="FDivider" src="../deviderWidget/deviderWidget.hml"></element>
+
+<div class="component-container">
+
+<!--    input widget-->
+    <div
+            if="{{ widget.type == 'input' || widget.type == 'time' || widget.type == 'date' || widget.type == 'number' || widget.type == 'radio' || widget.type == 'checkbox' }}">
+        <finput widget-config="{{ widget }}" @fill-data="getWidgetFillData"></finput>
+    </div>
+
+<!--    textarea widget-->
+    <div
+            elif="{{ widget.type == 'textarea' }}">
+        <ftextarea widget-config="{{ widget }}"></ftextarea>
+    </div>
+
+<!-- select   -->
+    <div elif="{{ widget.type == 'select' }}">
+        <fselect widget-config="{{widget}}"></fselect>
+    </div>
+<!--    switch-->
+    <div elif="{{ widget.type == 'switch' }}">
+        <fswitch widget-config="{{widget}}"></fswitch>
+    </div>
+<!--    rate-->
+    <div elif="{{ widget.type == 'rate' }}">
+        <frate widget-config="{{widget}}"></frate>
+    </div>
+<!--  slider-->
+    <div elif="{{ widget.type == 'slider' }}">
+        <fslider widget-config="{{widget}}"></fslider>
+    </div>
+<!--    static-text-->
+    <div elif="{{ widget.type == 'static-text' }}">
+        <fstatictext widget-config="{{widget}}"></fstatictext>
+    </div>
+<!--divider-->
+    <div elif="{{ widget.type == 'divider' }}">
+        <fdivider ></fdivider>
+    </div>
+    <div else>
+        <unknowwidget widget-config="{{ widget }}"></unknowwidget>
+    </div>
+
+</div>

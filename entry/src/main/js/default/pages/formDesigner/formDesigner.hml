@@ -1,0 +1,22 @@
+<element name="form-info-panel" src="./formInfoPanel/formInfoPanel.hml"></element>
+<element name="form-widget" src="./formWidget/formWidget.hml"></element>
+<div class="container" style="justify-content : center;">
+    <div class="form-widget">
+        <form-widget designer="{{ designer }}"></form-widget>
+    </div>
+
+    <div show="{{ visible.taskInfoPanelVb }}" class="bottom-info">
+        <div class="inner-card ">
+            <panel id="taskInfoPanel" mode="{{ model.panelModelFlag }}" type="foldable" miniheight="80px"
+                   halfheight="250px"
+                   style="margin-bottom : 50px; background-color : #e9d7df;">
+
+                <form-info-panel designer="{{ designer }}" task-info="{{ designer.taskInfo }}"></form-info-panel>
+            </panel>
+        </div>
+        <div class="inner-btn">
+            <button type="capsule" value="{{ $t('form.task.label.submit') }}" onclick="closePanel"></button>
+        </div>
+    </div>
+
+</div>

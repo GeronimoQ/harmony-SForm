@@ -1,0 +1,36 @@
+.drawer-container {
+    width: 100%;
+    height: 100%;
+}
+
+.drawer-menu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.drawer-menu-background {
+    width: 100%;
+    height: 100%;
+    background-color: #80000000;
+}
+
+.drawer-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: white;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.header{
+    width: 100%;
+    height: 60px;
+    top: 0px;
+}
+
+

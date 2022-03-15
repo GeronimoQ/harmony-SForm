@@ -1,0 +1,150 @@
+{
+  "app": {
+    "bundleName": "com.example.learnmyapplication_ark",
+    "vendor": "example",
+    "version": {
+      "code": 1000000,
+      "name": "1.0.0"
+    }
+  },
+  "deviceConfig": {
+    "default": {
+      "network": {
+        "cleartextTraffic": true
+      }
+    }
+  },
+  "module": {
+    "metaData": {
+      "customizeData": [
+        {
+          "name": "hwc-theme",
+          "value": "androidhwext:style/Theme.Emui.NoTitleBar"
+        }
+      ]
+    },
+    "package": "com.example.learnmyapplication_ark",
+    "name": ".MyApplication",
+    "mainAbility": "com.example.learnmyapplication_ark.MainAbility",
+    "deviceType": [
+      "phone",
+      "tablet"
+    ],
+    "distro": {
+      "deliveryWithInstall": true,
+      "moduleName": "entry",
+      "moduleType": "entry",
+      "installationFree": false
+    },
+    "abilities": [
+      {
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home",
+              "ability.intent.QUERY_WEATHER",
+              "ability.intent.DEFAULT_ACE",
+              "action.qr.scanner"
+            ]
+          }
+        ],
+        "visible": true,
+        "name": "com.example.learnmyapplication_ark.MainAbility",
+        "icon": "$media:icon",
+        "description": "$string:mainability_description",
+        "label": "$string:entry_MainAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "name": "com.example.learnmyapplication_ark.ScanningAbility",
+        "icon": "$media:icon",
+        "description": "$string:scanningability_description",
+        "label": "$string:entry_ScanningAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.learnmyapplication_ark.ScanningQRAbility",
+        "icon": "$media:icon",
+        "description": "$string:scanningqrability_description",
+        "label": "$string:entry_ScanningQRAbility",
+        "type": "page",
+        "launchType": "standard"
+      },
+      {
+        "backgroundModes": [
+          "dataTransfer"
+        ],
+        "name": "com.example.learnmyapplication_ark.QrScanningServiceAbility",
+        "icon": "$media:icon",
+        "description": "$string:qrscanningserviceability_description",
+        "type": "service"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "name": "ohos.permission.CAMERA"
+      },
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
+    "js": [
+      {
+        "pages": [
+          "pages/index/index",
+          "pages/first_page/first_page",
+          "pages/formDesigner/formDesigner",
+          "pages/drawer/drawer"
+        ],
+        "name": "default",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": true
+        }
+      },
+      {
+        "pages": [
+          "pages/index/index"
+        ],
+        "name": "card",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": false
+        }
+      },
+      {
+        "pages": [
+          "pages/index/index",
+          "pages/unknowWidget/unknowWidget",
+          "pages/selectWidget/selectWidget",
+          "pages/switchWidget/switchWidget",
+          "pages/rateWidget/rateWidget",
+          "pages/sliderWidget/sliderWidget",
+          "pages/staticTextWidget/staticTextWidget",
+          "pages/deviderWidget/deviderWidget"
+        ],
+        "name": "FComponent",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": false
+        }
+      },
+      {
+        "pages": [
+          "pages/index/index"
+        ],
+        "name": "Scanning",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": true
+        }
+      }
+    ]
+  }
+}

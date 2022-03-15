@@ -1,0 +1,26 @@
+<element name="drawer" src="../drawer/drawer.hml"></element>
+<element name="form-designer" src="../formDesigner/formDesigner.hml"></element>
+
+<div class="container">
+    <drawer show-style="0">
+
+        <div slot="content" class="content-layout">
+            <div class="header">
+                <image class="scan-img" src="/common/images/scan.png" onclick="start_scanning"></image>
+            </div>
+        </div>
+
+        <div slot="menu" class="menu-layout">
+            <div class="my-info">
+                <image src="common/images/head_photo.png"></image>
+                <text>登录 | 注册</text>
+            </div>
+            <div class="menu-content">
+                <div for="{{ listMenu }}" tid="{{ $item.id }}" on:click="menuSkip({{ $item.name }})">
+                    <image src="{{ $item.icon }}"></image>
+                    <text>{{ $item.name }}</text>
+                </div>
+            </div>
+        </div>
+    </drawer>
+</div>

@@ -1,0 +1,25 @@
+<div id="drawer-container" class="drawer-container" on:touchstart="onTouchStart"
+     on:touchmove="onTouchMove" on:touchend="onTouchEnd">
+
+    <div class="drawer-content" style="left : {{ showStyle == 0 ? offsetLeft : 0 }} px;
+            z-index : {{ zIndexContent }};" on:click="closeMenu">
+
+    <!--具名插槽，根据名称加入对应的插槽中-->
+        <slot name="content">
+
+        </slot>
+
+    </div>
+
+    <stack class="drawer-menu" style="z-index : {{ zIndexMenu }};">
+        <div class="drawer-menu-background" style="opacity : {{ menuBgOpacity }};"></div>
+        <div style="width : {{ menuWidth }} px; height : 100%;
+                left : {{ menuOffsetLeft }} px;" on:click="clickMenu">
+
+        <!--具名插槽，根据名称加入对应的插槽中-->
+            <slot name="menu"></slot>
+
+        </div>
+    </stack>
+
+</div>

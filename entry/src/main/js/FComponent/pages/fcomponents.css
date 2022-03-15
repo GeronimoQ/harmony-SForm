@@ -1,0 +1,48 @@
+.widget-container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.label {
+    width: 90%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    background-color: #e8e8e8;
+    flex-shrink: 1;
+    text-align: left;
+    font-size: 18fp;
+    font-weight: 700;
+    border-bottom: 1px;
+    border-radius: 20px;
+    border-color: gainsboro;
+}
+
+.label-fill-widget{
+    width: 50%;
+    align-self: center;
+    right: 20px;
+}
+
+.fill-widget{
+    width: 90%;
+/*    transform: rotate(3);*/
+    flex-direction: row;
+    flex-shrink: 1;
+    margin-top: 10px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input{
+    height: 60px;
+}
+
+picker{
+    width: 90%;
+}

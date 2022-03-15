@@ -1,0 +1,10 @@
+.component-container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18fp;
+    margin-top: 10px;
+}
+
+

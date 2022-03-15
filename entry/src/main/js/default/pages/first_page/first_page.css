@@ -1,0 +1,131 @@
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+
+.menu-content {
+    margin-top: 30px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.menu-content div {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+
+.menu-content div:active {
+    background-color: #e4e3ea;
+}
+
+.menu-content image {
+    width: 25px;
+    height: 25px;
+}
+
+.menu-content text {
+    color: #444444;
+    margin-left: 15px;
+    font-size: 18px;
+}
+
+
+.content-layout {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.header{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    top: 0px;
+    background-color: lightblue;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.scan-img{
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.title-bar {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #f3f3f3;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-bar image {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    margin-left: 10px;
+}
+
+
+.title-bar text {
+    font-size: 20px;
+}
+
+.mainpage-content {
+    flex-direction: column;
+    margin-top: 30px;
+    padding: 30px;
+    align-items: center;
+}
+
+.mainpage-content .content1 {
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.mainpage-content .content2 {
+    font-size: 15px;
+}
+
+
+
+
+.menu-layout {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f6fe;
+    border-right: 1px solid #eeeded;
+}
+
+.my-info {
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.my-info image {
+    width: 100px;
+    height: 100px;
+}
+
+.my-info text {
+    color: #4c4c4c;
+    font-size: 17px;
+}
