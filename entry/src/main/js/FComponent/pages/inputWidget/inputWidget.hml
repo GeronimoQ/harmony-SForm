@@ -1,4 +1,4 @@
-<div class="widget-container" >
+<div class="widget-container">
     <label class="label" target="{{ widgetConfig.id }}">
         {{ widgetConfig.options.label }}
     </label>
@@ -19,18 +19,18 @@
 
     <div if="{{widgetConfig.type === 'input' || widgetConfig.type === 'date' || widgetConfig.type === 'time' || widgetConfig.type === 'number' }}" class="fill-widget">
         <input if="{{ widgetConfig.options.validation == 'email' }}" id="{{ widgetConfig.id }}" type="email"
-               value="{{ widgetInfo.value }}">
+               value="{{ widgetInfo.value }}" @change="valueChange">
         </input>
 
         <picker elif="{{ widgetConfig.type == 'date' }}" id="{{ widgetConfig.id }}" value="{{ widgetInfo.value }}" type="date" start="1949-10-1"
                 end="2030-6-5"
                 value="1949-10-1"
-                show="true" ></picker>
+                show="true" @change="valueChangePicker_date"></picker>
         <picker elif="{{ widgetConfig.type == 'time' }}" id="{{ widgetConfig.id }}" value="{{ widgetInfo.value }}" type="time" value="20:10"
-                show="true"></picker>
+                show="true" @change="valueChangePicker_time"></picker>
         <input else id="{{ widgetConfig.id }}" value="{{ widgetInfo.value }}" ref="{{ widgetConfig.id }}"
                type="{{ widgetConfig.options.type ? widgetConfig.options.type : widgetConfig.type }} "
-               name="{{ widgetConfig.id }}">
+               name="{{ widgetConfig.id }}" @change="valueChange">
         </input>
     </div>
 
@@ -38,7 +38,7 @@
     <div else class="input-mut">
         <div class="item-div" for="{{ (index, radioItem) in widgetConfig.options.optionItems }}" tid="{{ index }}">
             <input type="{{ widgetConfig.type }}" id="radio-{{ index }}" name="{{ widgetConfig.id }}"
-                   value="{{ radioItem.value }}">
+                   value="{{ radioItem.value }}" @change="valueChange">
             </input>
             <label target="radio-{{ index }}">{{ radioItem.label }}</label>
         </div>

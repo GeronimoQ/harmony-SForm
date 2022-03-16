@@ -9,11 +9,19 @@ export default {
         visible: {
             inputVB: false,
             textareaVB: false
-        }
+        },
+        fillData:null,
     },
 
     getWidgetFillData(e){
-        let fillData=JSON.parse(e)
-        prompt.showToast({message:e.value})
-    }
+        let value=e.detail.fillData
+        let widgetCopy=this.widget
+        let fillData={
+            value:value,
+            widgetCopy:widgetCopy
+        }
+        prompt.showToast({message:value})
+        this.$emit()
+    },
+
 }

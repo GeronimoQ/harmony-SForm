@@ -5,7 +5,7 @@
     <form class="form-container" >
         <list scrollpage="true" scrollbar="auto">
             <list-item  for="{{widget in designer.modelInfo.itemList}}" tid="{{$idx}}" clickeffect="false">
-                <f-component widget="{{widget}}"></f-component>
+                <f-component widget="{{widget}}" ></f-component>
             </list-item>
         </list>
     </form>

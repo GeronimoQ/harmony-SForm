@@ -1,23 +1,27 @@
 export default {
-    props:{
-        widgetConfig:{
-            default:null
+    props: {
+        widgetConfig: {
+            default: null
         }
     },
     data: {
-        widgetInfo:{
-            value:'',
-            widgetCopy:''
+        widgetInfo: {
+            value: '',
+            widgetCopy: ''
         }
     },
 
-    switchChange(checked){
-        this.widgetInfo.value=checked.checkedValue
+    async switchChange(checked) {
+//        { checked: checkedValue }
+        this.widgetInfo.value = checked.checked
+        await this.submitValue()
     },
 
-    submitValue(){
-        var widgetConfig=JSON.parse(JSON.stringify(this.widgetConfig));
-        this.widgetInfo.widgetCopy=widgetConfig;
-        this.$emit("fillData",JSON.stringify(this.widgetInfo));
-    }
+    submitValue() {
+        let data = {
+            fillData: this.widgetInfo.value
+        }
+
+        this.$emit("fillData", data);
+    },
 }

@@ -6,7 +6,7 @@
             {{ widgetConfig.options.label }}
         </label>
 
-        <switch class="label-fill-widget" onchange="switchChange" texton="{{widgetConfig.options.activeText}}" textoff="{{widgetConfig.options.inactiveText}}">
+        <switch class="label-fill-widget" @change="switchChange" texton="{{widgetConfig.options.activeText}}" textoff="{{widgetConfig.options.inactiveText}}">
         </switch>
     </div>
 

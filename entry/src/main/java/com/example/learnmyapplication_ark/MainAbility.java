@@ -55,9 +55,6 @@ public class MainAbility extends AceAbility {
     }
 
 
-    //    @TODO PA开发：获取任务以及模板信息
-
-
     /*
      * 发布有序的公共事件
      */

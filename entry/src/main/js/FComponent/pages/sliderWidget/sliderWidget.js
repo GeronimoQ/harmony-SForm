@@ -12,9 +12,11 @@ export default {
         }
     },
 
-    sliderChange(changeEvent){
+    async sliderChange(changeEvent){
+
         if (changeEvent.mode==='end') {
             this.widgetInfo.value=changeEvent.value
+            await this.submitValue()
         }
         if (changeEvent.value===this.widgetConfig.options.max) {
             prompt.showToast({message:"已经到顶啦~"})
@@ -23,8 +25,9 @@ export default {
     },
 
     submitValue(){
-        var widgetConfig=JSON.parse(JSON.stringify(this.widgetConfig));
-        this.widgetInfo.widgetCopy=widgetConfig;
-        this.$emit("fillData",JSON.stringify(this.widgetInfo));
-    }
+        let data={
+            fillData:this.widgetInfo.value
+        }
+        this.$emit("fillData",data);
+    },
 }

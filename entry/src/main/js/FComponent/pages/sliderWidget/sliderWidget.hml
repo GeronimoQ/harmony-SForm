@@ -10,7 +10,7 @@
         </input>
         <slider id="slider-widget" style="width : 80%; padding : 10px;" max="{{ widgetConfig.options.max }}"
                 min="{{ widgetConfig.options.min }}" step="{{ widgetConfig.options.step }}"
-                showsteps="true" showtips="true" onchange="sliderChange">
+                showsteps="true" showtips="true" @change="sliderChange">
 
         </slider>
     </div>

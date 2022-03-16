@@ -5,7 +5,7 @@
             {{ widgetConfig.options.label }}
         </label>
 
-        <rating class="label-fill-widget" onchange="rateChange" numstars="{{widgetConfig.options.max}}" rating="{{widgetConfig.options.defaultValue}}" >
+        <rating class="label-fill-widget" @change="rateChange" numstars="{{widgetConfig.options.max}}" rating="{{widgetConfig.options.defaultValue}}" >
 
         </rating>
     </div>

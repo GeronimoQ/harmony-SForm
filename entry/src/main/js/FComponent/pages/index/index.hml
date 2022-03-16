@@ -21,28 +21,28 @@
 <!--    textarea widget-->
     <div
             elif="{{ widget.type == 'textarea' }}">
-        <ftextarea widget-config="{{ widget }}"></ftextarea>
+        <ftextarea widget-config="{{ widget }}" @fill-data="getWidgetFillData"></ftextarea>
     </div>
 
 <!-- select   -->
     <div elif="{{ widget.type == 'select' }}">
-        <fselect widget-config="{{widget}}"></fselect>
+        <fselect widget-config="{{widget}}" @fill-data="getWidgetFillData"></fselect>
     </div>
 <!--    switch-->
     <div elif="{{ widget.type == 'switch' }}">
-        <fswitch widget-config="{{widget}}"></fswitch>
+        <fswitch widget-config="{{widget}}" @fill-data="getWidgetFillData"></fswitch>
     </div>
 <!--    rate-->
     <div elif="{{ widget.type == 'rate' }}">
-        <frate widget-config="{{widget}}"></frate>
+        <frate widget-config="{{widget}}" @fill-data="getWidgetFillData"></frate>
     </div>
 <!--  slider-->
     <div elif="{{ widget.type == 'slider' }}">
-        <fslider widget-config="{{widget}}"></fslider>
+        <fslider widget-config="{{widget}}" @fill-data="getWidgetFillData"></fslider>
     </div>
 <!--    static-text-->
     <div elif="{{ widget.type == 'static-text' }}">
-        <fstatictext widget-config="{{widget}}"></fstatictext>
+        <fstatictext widget-config="{{widget}}" ></fstatictext>
     </div>
 <!--divider-->
     <div elif="{{ widget.type == 'divider' }}">

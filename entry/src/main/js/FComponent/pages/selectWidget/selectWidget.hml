@@ -6,7 +6,7 @@
             {{ widgetConfig.options.label }}
         </label>
 
-        <select class="label-fill-widget" onchange="selectChange">
+        <select class="label-fill-widget" @change="selectChange">
             <option for="{{option in widgetConfig.options.optionItems}}" tid="{{$idx}}" value="{{option.value}}">
                 {{option.value}}
             </option>

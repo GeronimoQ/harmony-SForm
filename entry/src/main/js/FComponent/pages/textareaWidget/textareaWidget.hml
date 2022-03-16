@@ -4,6 +4,6 @@
     </label>
 
     <div class="fill-widget" >
-        <textarea placeholder="{{widgetConfig.options.placeholder}}" value="{{widgetInfo.value}}" showcounter="true" extend="true" onchange="submitValue"></textarea>
+        <textarea @change="valueChange" placeholder="{{widgetConfig.options.placeholder}}" value="{{widgetInfo.value}}" showcounter="true" extend="true"></textarea>
     </div >
 </div>

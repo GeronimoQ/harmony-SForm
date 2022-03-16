@@ -10,10 +10,17 @@ export default {
             widgetCopy:''
         }
     },
+
+
+    async valueChange(value){
+//        { text: newText, lines: textLines, height: textHeight }
+        this.widgetInfo.value=value.text
+        await this.submitValue()
+    },
     submitValue(){
-        console.error(this.widgetInfo.value)
-        var widgetConfig=JSON.parse(JSON.stringify(this.widgetConfig));
-        this.widgetInfo.widgetCopy=widgetConfig;
-        this.$emit("fillData",JSON.stringify(this.widgetInfo));
-    }
+        let data={
+            fillData:this.widgetInfo.value
+        }
+        this.$emit("fillData",data);
+    },
 }

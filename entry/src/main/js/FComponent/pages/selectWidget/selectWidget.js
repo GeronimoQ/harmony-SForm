@@ -10,12 +10,14 @@ export default {
             widgetCopy:''
         }
     },
-    selectChange(newValue){
+    async selectChange(newValue){
         this.widgetInfo.value=newValue.newValue
+        await this.submitValue()
     },
     submitValue(){
-        var widgetConfig=JSON.parse(JSON.stringify(this.widgetConfig));
-        this.widgetInfo.widgetCopy=widgetConfig;
-        this.$emit("fillData",JSON.stringify(this.widgetInfo));
-    }
+        let data={
+            fillData:this.widgetInfo.value
+        }
+        this.$emit("fillData",data);
+    },
 }
