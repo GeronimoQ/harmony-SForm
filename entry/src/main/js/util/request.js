@@ -20,7 +20,7 @@ const request = {
 function requestMethod(url, options) {
 //    不能单例，必须每次请求都创建一个httprequest ----error------ "code":200,"data":"The request has been canceled."
     let httpRequest = http.createHttp()
-    let promise = httpRequest.request(serverConfig.baseUri + url, options,).then(data => codeHandler(data)).catch(error => errorResponseCodeHandler(error))
+    let promise = httpRequest.request(serverConfig.baseUri + url, options,).then(data => codeHandler(data),error => errorResponseCodeHandler(error))
     return promise
 }
 
@@ -58,6 +58,7 @@ function errorCodeHandler(data) {
         }
         case 510:
         {
+            console.info("------------code:510---------------")
             //            访问权限未通过
             prompt.showToast({ message: data.result.message })
             break;

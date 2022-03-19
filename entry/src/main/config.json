@@ -101,7 +101,8 @@
           "pages/first_page/first_page",
           "pages/formDesigner/formDesigner",
           "pages/drawer/drawer",
-          "pages/FComponent/FComponent"
+          "pages/FComponent/FComponent",
+          "pages/FComponent/checkBoxWidget/checkBoxWidget"
         ],
         "name": "default",
         "window": {

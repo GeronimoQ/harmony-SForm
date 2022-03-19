@@ -26,14 +26,11 @@ export default {
             value: value,
             widgetCopy: widgetCopy
         }
-//        prompt.showToast({
-//            message: value
-//        })
-        this.setWidgetFillData(fillData)
 
+        this.setWidgetFillData(fillData)
     },
     setWidgetFillData(fillData) {
+        console.info(JSON.stringify(fillData))
         this.designer.fillData[this.designer.indexMap.get(fillData.widgetCopy.id)].value=fillData.value
-        console.info("@@@@@@@@@@@@@@@@"+this.designer.fillData[this.designer.indexMap.get(fillData.widgetCopy.id)].value)
     }
 }

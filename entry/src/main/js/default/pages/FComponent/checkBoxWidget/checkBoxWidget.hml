@@ -1,0 +1,14 @@
+<div class="widget-container">
+    <label class="label" target="{{ widgetConfig.id }}">
+        {{ widgetConfig.options.label }}
+    </label>
+
+    <div class="input-mut">
+        <div class="item-div" for="{{ (index, radioItem) in widgetConfig.options.optionItems }}" tid="{{ index }}">
+            <input type="{{ widgetConfig.type }}" id="check-{{ index }}" name="{{ widgetConfig.id }}"
+                   value="{{ radioItem.value }}" @change="checkBoxValueChange">
+            </input>
+            <label target="radio-{{ index }}">{{ radioItem.label }}</label>
+        </div>
+    </div>
+</div>

@@ -7,6 +7,7 @@
 <element name="frate" src="./rateWidget/rateWidget.hml"></element>
 <element name="fswitch" src="./switchWidget/switchWidget.hml"></element>
 <element name="fselect" src="./selectWidget/selectWidget.hml"></element>
+<element name="fcheckbox" src="./checkBoxWidget/checkBoxWidget.hml"></element>
 
 
 
@@ -14,10 +15,13 @@
 
 <!--    input widget-->
     <div
-            if="{{ widget.type == 'input' || widget.type == 'time' || widget.type == 'date' || widget.type == 'number' || widget.type == 'radio' || widget.type == 'checkbox' }}">
+            if="{{ widget.type == 'input' || widget.type == 'time' || widget.type == 'date' || widget.type == 'number' || widget.type == 'radio' }}">
         <finput widget-config="{{ widget }}" @fill-data="getWidgetFillData"></finput>
     </div>
 
+    <div elif="{{ widget.type == 'checkbox'}}">
+        <fcheckbox widget-config="{{ widget }}" @fill-data="getWidgetFillData"></fcheckbox>
+    </div>
 <!--    textarea widget-->
     <div
             elif="{{ widget.type == 'textarea' }}">
