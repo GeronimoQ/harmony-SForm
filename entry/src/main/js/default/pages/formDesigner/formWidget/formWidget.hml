@@ -1,11 +1,11 @@
-<element name="f-component" src="../../../../FComponent/pages/index/index.hml"></element>
+<element name="f-component" src="../../FComponent/FComponent.hml"></element>
 
 <div class="widget-container">
 
     <form class="form-container" >
         <list scrollpage="true" scrollbar="auto">
             <list-item  for="{{widget in designer.modelInfo.itemList}}" tid="{{$idx}}" clickeffect="false">
-                <f-component widget="{{widget}}" ></f-component>
+                <f-component widget="{{widget}}" designer="{{designer}}"></f-component>
             </list-item>
         </list>
     </form>

@@ -1,10 +1,10 @@
-import {widgetListCase, widgetListCase2, widgetListCase3, widgetListCase4,widgetListCase5} from './testCase.js'
-
-
-
+import {widgetListCase, widgetListCase2, widgetListCase3, widgetListCase4, widgetListCase5} from './testCase.js'
 
 
 export default function createDesigner(pageInstance) {
+
+
+
     return {
         taskInfo: {
             "id": "123456789",
@@ -17,11 +17,15 @@ export default function createDesigner(pageInstance) {
         },
 
         modelInfo: {
-            itemList:widgetListCase4
+            itemList: widgetListCase4
         },
+
+        fillData: [],
+        indexMap: {},
 
         defaultStyle: {
             taskInfoHeadStyle: {}
-        }
+        },
+
     }
 }

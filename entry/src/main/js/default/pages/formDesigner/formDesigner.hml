@@ -1,22 +1,40 @@
 <element name="form-info-panel" src="./formInfoPanel/formInfoPanel.hml"></element>
 <element name="form-widget" src="./formWidget/formWidget.hml"></element>
 <div class="container" style="justify-content : center;">
+
+<!--    <button class="download" type="capsule" onclick="submitFillData" value="{{ $t('form.task.label.submit') }}"></button>-->
+
     <div class="form-widget">
         <form-widget designer="{{ designer }}"></form-widget>
     </div>
 
     <div show="{{ visible.taskInfoPanelVb }}" class="bottom-info">
         <div class="inner-card ">
-            <panel id="taskInfoPanel" mode="{{ model.panelModelFlag }}" type="foldable" miniheight="80px"
+            <panel class="panel-div" id="taskInfoPanel" mode="{{ model.panelModelFlag }}" type="foldable"
+                   miniheight="90px"
                    halfheight="250px"
-                   style="margin-bottom : 50px; background-color : #e9d7df;">
+                   style="background-color : #e9d7df;">
+                <div class="circleall">
+                    <button class="download" click-effect="spring-large" type="capsule" onclick="submitFillData"
+                            value="{{ $t('form.task.label.submit') }}"></button>
+                    <form-info-panel designer="{{ designer }}" task-info="{{ designer.taskInfo }}"></form-info-panel>
+                </div>
 
-                <form-info-panel designer="{{ designer }}" task-info="{{ designer.taskInfo }}"></form-info-panel>
             </panel>
         </div>
-        <div class="inner-btn">
-            <button type="capsule" value="{{ $t('form.task.label.submit') }}" onclick="closePanel"></button>
-        </div>
     </div>
+    <dialog id="sureDialog" style="margin-bottom : 50%;">
+        <div class="dialog-div">
+            <div class="dialog-inner-text">
+                <text style="font-size: 15fp;">{{ submitMessage }}</text>
+                <image show="{{visible.loadImageVB}}" style="width:40px;height:40px;margin-top: 10px;object-fit: contain;" src="../../common/images/load.gif"></image>
+            </div>
+            <div class="dialog-inner-btn">
+                <button value="确定" style="width: 50%;text-color: {{style.sureBtnText_bgc}};" type="text" disabled="{{ visible.submitSureBtnDS }}" onclick="sureSubmit_btn">
+                </button>
+                <button value="取消" style="width: 50%;" type="text" onclick="cancelSubmit_btn"></button>
+            </div>
+        </div>
+    </dialog>
 
 </div>

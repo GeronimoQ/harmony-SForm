@@ -14,33 +14,75 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
 .inner-card {
     width: 100%;
 }
 
-.form-widget{
+.form-widget {
     margin-bottom: 40px;
     flex-shrink: 1;
     overflow: auto;
 }
-.bottom-info{
+
+.bottom-info {
     flex-direction: column;
-    justify-content:flex-end ;
+    justify-content: center;
     flex-shrink: 0;
     bottom: 0px;
 }
 
-
-
-.inner-btn {
-    padding-bottom: 10px;
+.dialog-div {
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.dialog-inner-text {
+    margin-top: 40px;
+    flex-direction: column;
+    width: 100%;
+    height: 70px;
     justify-content: center;
-    align-items:center;
+    align-items: center;
+    overflow: scroll;
+    font-size: 25fp;
+}
+
+.dialog-inner-btn {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.div-button {
+    flex-direction: column;
+    width: 100%;
+}
+
+.circleall {
+    flex-direction: column;
+    justify-content: space-around;
+/*    padding-bottom: 10px;*/
+    width: 100%;
+    align-items: center;
     background-color: #e9d7df;
 }
 
-.inner-btn button{
-    width: 70%;
+.download {
+    margin-top: 15px;
+    width: 88%;
+    height: 40px;
+    border-radius: 50px;
+    text-color: white;
+    align-self: center;
+    background-color: #007dff;
+}
+#taskInfoPanel{
+    z-index: -1;
 }

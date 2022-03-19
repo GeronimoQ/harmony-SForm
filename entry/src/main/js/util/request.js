@@ -5,7 +5,7 @@ import http from '@ohos.net.http';
 import prompt from '@system.prompt';
 
 const serverConfig = {
-    baseUri: "http://192.168.137.1:8088/jeecg-boot/geronimo",
+    baseUri: "http://192.168.43.73:8088/jeecg-boot/geronimo",
     connectTimeout: 20000,
     readTimeout: 60000,
     header: {

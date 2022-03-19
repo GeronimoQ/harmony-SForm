@@ -1,14 +1,14 @@
-<element name="unknowWidget" src="../unknowWidget/unknowWidget.hml">
-</element>
+<element name="unknowwidget" src="./unknowWidget/unknowWidget.hml"></element>
+<element name="finput" src="./inputWidget/inputWidget.hml"></element>
+<element name="ftextarea" src="./textareaWidget/textareaWidget.hml"></element>
+<element name="fdivider" src="./deviderWidget/deviderWidget.hml"></element>
+<element name="fslider" src="./sliderWidget/sliderWidget.hml"></element>
+<element name="fstatictext" src="./staticTextWidget/staticTextWidget.hml"></element>
+<element name="frate" src="./rateWidget/rateWidget.hml"></element>
+<element name="fswitch" src="./switchWidget/switchWidget.hml"></element>
+<element name="fselect" src="./selectWidget/selectWidget.hml"></element>
 
-<element name="FInput" src="../inputWidget/inputWidget.hml"></element>
-<element name="FTextarea" src="../textareaWidget/textareaWidget.hml"></element>
-<element name="FSelect" src="../selectWidget/selectWidget.hml"></element>
-<element name="FSwitch" src="../switchWidget/switchWidget.hml"></element>
-<element name="FRate" src="../rateWidget/rateWidget.hml"></element>
-<element name="FStaticText" src="../staticTextWidget/staticTextWidget.hml"></element>
-<element name="FSlider" src="../sliderWidget/sliderWidget.hml"></element>
-<element name="FDivider" src="../deviderWidget/deviderWidget.hml"></element>
+
 
 <div class="component-container">
 

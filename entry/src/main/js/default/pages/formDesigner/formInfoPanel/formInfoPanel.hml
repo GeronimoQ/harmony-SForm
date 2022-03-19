@@ -5,18 +5,14 @@
 
     <card>
         <div slot="mainHeader">
-            <label>{{ $t('form.task.label.taskName') }}</label>
-            <text>:{{ taskInfo.title }}</text>
+            <text>{{ taskInfo.title }}</text>
         </div>
         <div slot="subHeader">
-            <text>{{ taskInfo.id }}</text>
+            <text style="margin-top: 10px;">{{ taskInfo.id }}</text>
         </div>
-        <div slot="content">
-            <label>
-                {{ $t('form.task.label.taskInstr') }}:
-            </label>
+        <div slot="content" style="width: 100%;text-align: left;">
             <text>
-                {{ taskInfo.instr }}
+                {{ "    "+taskInfo.instr }}
             </text>
         </div>
     </card>

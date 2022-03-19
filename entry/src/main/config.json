@@ -100,7 +100,8 @@
           "pages/index/index",
           "pages/first_page/first_page",
           "pages/formDesigner/formDesigner",
-          "pages/drawer/drawer"
+          "pages/drawer/drawer",
+          "pages/FComponent/FComponent"
         ],
         "name": "default",
         "window": {
@@ -113,23 +114,6 @@
           "pages/index/index"
         ],
         "name": "card",
-        "window": {
-          "designWidth": 720,
-          "autoDesignWidth": false
-        }
-      },
-      {
-        "pages": [
-          "pages/index/index",
-          "pages/unknowWidget/unknowWidget",
-          "pages/selectWidget/selectWidget",
-          "pages/switchWidget/switchWidget",
-          "pages/rateWidget/rateWidget",
-          "pages/sliderWidget/sliderWidget",
-          "pages/staticTextWidget/staticTextWidget",
-          "pages/deviderWidget/deviderWidget"
-        ],
-        "name": "FComponent",
         "window": {
           "designWidth": 720,
           "autoDesignWidth": false
