@@ -1,3 +1,4 @@
+import { isNumber } from '../../../../util/util.js';
 import prompt from '@system.prompt';
 export default {
     props:{
@@ -6,14 +7,13 @@ export default {
         }
     },
     data: {
-        curIndex:-1,
         widgetInfo:{
-            value:[],
+            value:'',
             widgetCopy:''
         },
         checkedOptions:new Map()
     },
-    onShow(){
+    onActive(){
         this.initCheckOptions()
     },
 
@@ -25,33 +25,33 @@ export default {
     },
 
     submitValue(){
-        console.info("!!!!"+JSON.stringify(this.widgetInfo.value))
         let data={
             fillData:this.widgetInfo.value
         }
         this.$emit("fillData",data);
     },
 
-    async getIndex(index){
-        console.info("@@@@@@@@@"+index)
-    },
-
-    async checkBoxValueChange(checked,index){
-        console.info("@@@@@@@@@"+checked)
+    checkBoxValueChange(checked){
+//        check是个对象！
         let checkedOps=[]
-        let value=this.widgetConfig.options.optionItems[index].value
-        if (checked) {
-            this.checkedOptions.set(value,true)
+        let value=checked.currentTarget.attr.value
+        if (checked.checked) {
+            this.checkedOptions[value]=true
         }else{
-            this.checkedOptions.set(value,false)
+            this.checkedOptions[value]=false
         }
 //       遍历MAP对象，将其中值为true的拿出
-        for(let key in this.checkedOptions.keys()){
-            if (this.checkedOptions.get(key)) {
-                checkedOps.push(this.checkedOptions.get(key))
+        for(let key in this.checkedOptions){
+            if (this.checkedOptions[key]) {
+                if(isNumber(key)){
+                    checkedOps.push(parseInt(key))
+                }else{
+                    checkedOps.push(key)
+                }
+
             }
         }
         this.widgetInfo.value=checkedOps
-        await this.submitValue()
+        this.submitValue()
     },
 }

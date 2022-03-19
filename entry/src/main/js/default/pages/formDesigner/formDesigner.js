@@ -63,13 +63,13 @@ export default {
         let indexMap = new Map()
         let fillData = new Array()
         for (let widget in widgetList) {
-            var ori={}
-            if (widgetList[widget].type!=='static-text' && widgetList[widget].type!=='divider') {
+            var ori = {}
+            if (widgetList[widget].type !== 'static-text' && widgetList[widget].type !== 'divider') {
                 ori = {
                     value: null,
                     widgetCopy: widgetList[widget]
                 }
-            }else{
+            } else {
                 ori = {
                     value: '',
                     widgetCopy: widgetList[widget]
@@ -85,7 +85,7 @@ export default {
     async checkFillDataBeforeSubmit() {
         let fillDataList = this.designer.fillData
         for (let fillD in fillDataList) {
-            if (fillDataList[fillD].value==null) {
+            if (fillDataList[fillD].value == null) {
                 let label = fillDataList[fillD].widgetCopy.options.label
                 this.submitMessage = label + "项没有填写\r\n请填写后再提交"
                 this.visible.loadImageVB = false
@@ -107,17 +107,18 @@ export default {
     },
 
     sureSubmit_btn() {
-        let params={
+        let params = {
             "fillDate": dateFormat(new Date()),
             "formData": JSON.stringify(this.designer.fillData),
             "id": "",
             "taskId": this.designer.taskInfo.id,
             "userId": "150"
         }
-        submitFillData(params).then(data=>{
-            prompt.showToast("提交成功")
-            router.back()
-        }).catch(_=>{})
+        submitFillData(params).then(data => {
+            prompt.showDialog({message:"填报成功"})
+            setTimeout(function(){router.back()},1000)
+        }).catch(_ => {
+        })
     },
     cancelSubmit_btn() {
         this.$element("sureDialog").close()
