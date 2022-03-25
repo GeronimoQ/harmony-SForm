@@ -1,7 +1,0 @@
-<div class="widget-container">
-    <div class="content">
-        <div class="line"></div>
-        <text class="middle">{{ widgetConfig.options.textContent }}</text>
-        <div class="line"></div>
-    </div>
-</div>

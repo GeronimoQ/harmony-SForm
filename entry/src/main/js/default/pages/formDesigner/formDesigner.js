@@ -1,3 +1,4 @@
+import tempStorage from './common/tempStorage.js';
 import createDesigner from './common/designer.js';
 import modelAPI from '../../../api/modelAPI.js'
 import router from '@system.router';
@@ -25,7 +26,11 @@ export default {
         style: {
             sureBtnText_bgc: 'rgb(238, 132, 67)'
         },
+        tempStorage:tempStorage(this),
         submitMessage: '填报数据分析中...'
+    },
+    onInit(){
+
     },
 
     //    初始化任务，通过路由传过来的taskId,将网络请求taskInfo,将其注册到designer中
@@ -33,6 +38,7 @@ export default {
         if (this.designer) {
             this.visible.taskInfoPanelVb = true
             this.$element('taskInfoPanel').show()
+            this.tempStorage.initStorage();
             this.requestModelInfo()
         } else {
             router.back();
@@ -83,22 +89,19 @@ export default {
     },
 
     async checkFillDataBeforeSubmit() {
-        let fillDataList = this.designer.fillData
-        for (let fillD in fillDataList) {
-            if (fillDataList[fillD].value == null) {
-                let label = fillDataList[fillD].widgetCopy.options.label
-                this.submitMessage = label + "项没有填写\r\n请填写后再提交"
-                this.visible.loadImageVB = false
-                return
-            }
-        }
-
+//        let fillDataList = this.designer.fillData
+//        for (let fillD in fillDataList) {
+//            if (fillDataList[fillD].value == null) {
+//                let label = fillDataList[fillD].widgetCopy.options.label
+//                this.submitMessage = label + "项没有填写\r\n请填写后再提交"
+//                this.visible.loadImageVB = false
+//                return
+//            }
+//        }
         this.visible.loadImageVB = false
         this.visible.submitSureBtnDS = false
         this.submitMessage = "填报有效，请提交"
         this.style.sureBtnText_bgc = 'rgb(85, 187, 138)'
-
-
     },
 
     submitFillData() {
@@ -106,7 +109,7 @@ export default {
         this.checkFillDataBeforeSubmit()
     },
 
-    sureSubmit_btn() {
+   async sureSubmit_btn() {
         let params = {
             "fillDate": dateFormat(new Date()),
             "formData": JSON.stringify(this.designer.fillData),
@@ -114,13 +117,19 @@ export default {
             "taskId": this.designer.taskInfo.id,
             "userId": "150"
         }
-        submitFillData(params).then(data => {
-            prompt.showDialog({message:"填报成功"})
-            setTimeout(function(){router.back()},1000)
-        }).catch(_ => {
-        })
+//        submitFillData(params).then(data => {
+//            prompt.showDialog({message:"填报成功"})
+//            this.tempStorage.submitUpdate()
+//        }).catch(_ => {
+//        })
+        console.info("@@@@@@@@ submit start")
+        this.tempStorage.submitUpdate()
+//        this.tempStorage.endurance()
+
+//        setTimeout(function(){router.back()},1000)
     },
     cancelSubmit_btn() {
         this.$element("sureDialog").close()
-    }
+    },
+
 }

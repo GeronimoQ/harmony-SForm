@@ -17,7 +17,7 @@ export default function createDesigner(pageInstance) {
         },
 
         modelInfo: {
-            itemList: widgetListCase4
+            itemList: '',
         },
 
         fillData: [],

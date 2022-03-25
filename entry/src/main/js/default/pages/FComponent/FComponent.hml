@@ -16,33 +16,33 @@
 <!--    input widget-->
     <div
             if="{{ widget.type == 'input' || widget.type == 'time' || widget.type == 'date' || widget.type == 'number' || widget.type == 'radio' }}">
-        <finput widget-config="{{ widget }}" @fill-data="getWidgetFillData"></finput>
+        <finput widget-config="{{ widget }}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></finput>
     </div>
 
     <div elif="{{ widget.type == 'checkbox'}}">
-        <fcheckbox widget-config="{{ widget }}" @fill-data="getWidgetFillData"></fcheckbox>
+        <fcheckbox widget-config="{{ widget }}" @fill-data="getWidgetFillData" ></fcheckbox>
     </div>
 <!--    textarea widget-->
     <div
             elif="{{ widget.type == 'textarea' }}">
-        <ftextarea widget-config="{{ widget }}" @fill-data="getWidgetFillData"></ftextarea>
+        <ftextarea widget-config="{{ widget }}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></ftextarea>
     </div>
 
 <!-- select   -->
     <div elif="{{ widget.type == 'select' }}">
-        <fselect widget-config="{{widget}}" @fill-data="getWidgetFillData"></fselect>
+        <fselect widget-config="{{widget}}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></fselect>
     </div>
 <!--    switch-->
     <div elif="{{ widget.type == 'switch' }}">
-        <fswitch widget-config="{{widget}}" @fill-data="getWidgetFillData"></fswitch>
+        <fswitch widget-config="{{widget}}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></fswitch>
     </div>
 <!--    rate-->
     <div elif="{{ widget.type == 'rate' }}">
-        <frate widget-config="{{widget}}" @fill-data="getWidgetFillData"></frate>
+        <frate widget-config="{{widget}}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></frate>
     </div>
 <!--  slider-->
     <div elif="{{ widget.type == 'slider' }}">
-        <fslider widget-config="{{widget}}" @fill-data="getWidgetFillData"></fslider>
+        <fslider widget-config="{{widget}}" @fill-data="getWidgetFillData" default-value="{{Vk2V.value}}"></fslider>
     </div>
 <!--    static-text-->
     <div elif="{{ widget.type == 'static-text' }}">

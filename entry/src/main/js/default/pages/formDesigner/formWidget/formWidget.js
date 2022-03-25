@@ -7,6 +7,9 @@ export default {
         },
         designerConfig: {
             default: null
+        },
+        tempStorage:{
+            default:null
         }
     },
 
