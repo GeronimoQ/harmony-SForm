@@ -40,6 +40,18 @@ export default {
         }
         this.Vk2V.value=value
         await this.setWidgetFillData(fillData)
+    },
+
+    async getWidgetFillData_storage(e){
+        let value = e.detail.fillData
+        let widgetCopy = JSON.parse(JSON.stringify(this.widget))
+
+        let fillData = {
+            value: value,
+            widgetCopy: widgetCopy
+        }
+        this.Vk2V.value=value
+        await this.setWidgetFillData(fillData)
         this.updateTempValue()
     },
 
@@ -54,6 +66,16 @@ export default {
      */
     async checkLabel(){
         this.Vk2V=await this.tempStorage.checkLabel(this.widget.options.label)
+//        初始化填报数据
+        if (this.Vk2V.value!=="") {
+            let value = this.Vk2V.value
+            let widgetCopy = JSON.parse(JSON.stringify(this.widget))
+            let fillData = {
+                value: value,
+                widgetCopy: widgetCopy
+            }
+            await this.setWidgetFillData(fillData)
+        }
         console.info("@@@@@@@@@@@return vk2v"+JSON.stringify(this.Vk2V))
     },
 

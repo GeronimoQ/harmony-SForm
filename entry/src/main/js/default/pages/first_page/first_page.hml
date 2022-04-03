@@ -1,26 +1,42 @@
 <element name="drawer" src="../drawer/drawer.hml"></element>
 <element name="form-designer" src="../formDesigner/formDesigner.hml"></element>
-
+<element name="taskList" src="../taskList/taskList.hml"></element>
 <div class="container">
     <drawer show-style="0">
 
         <div slot="content" class="content-layout">
+<!--            扫一扫-->
             <div class="header">
                 <image class="scan-img" src="/common/images/scan.png" onclick="start_scanning"></image>
             </div>
+<!--       团体任务列表,下拉刷新     -->
+            <div class="refresh-container" >
+               <tasklist task-type="group" user-info="{{userInfo}}" designer="{{designer}}"></tasklist>
+            </div>
+
         </div>
 
         <div slot="menu" class="menu-layout">
             <div class="my-info">
-                <image src="common/images/head_photo.png"></image>
-                <text>登录 | 注册</text>
+                <image src="/common/icons/headAva.png"></image>
+                <block if="{{ userInfo.id === '123abcd' }}">
+                    <text class="user-name">{{ userInfo.userName }}</text>
+                    <text style=" margin-top : 10px; font-size : 12px; font-weight : 600;" onclick="jumpToLoginPage">登录 |
+                        注册</text>
+                </block>
+                <block else>
+                    <text class="user-name">{{ userInfo.userName }}</text>
+                    <text style="margin-top : 10px; font-size : 10fp;">{{ userInfo.userId }}</text>
+                    <image style="width : 30px; height : 30px;margin-top: 20px;object-fit: contain;" src="/common/icons/logout.png" onclick="logout"></image>
+                </block>
             </div>
             <div class="menu-content">
-                <div for="{{ listMenu }}" tid="{{ $item.id }}" on:click="menuSkip({{ $item.name }})">
+                <div for="{{ listMenu }}" show="{{$item.id===1||$item.id===2?($item.id===2?!userInfo.joined:userInfo.joined):true}}" tid="{{ $item.id }}" on:click="menuSkip({{ $item.name }},{{ $item.id }})">
                     <image src="{{ $item.icon }}"></image>
-                    <text>{{ $item.name }}</text>
+                    <text onclick="menuSkip({{ $item.name }},{{ $item.id }}">{{ $item.name }}</text>
                 </div>
             </div>
         </div>
+
     </drawer>
 </div>

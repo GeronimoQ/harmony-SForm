@@ -1,0 +1,25 @@
+<div class="refresh-container">
+    <refresh refreshing="{{ refresh }}" onrefresh="refreshOp">
+        <list id="task-list" scrolleffect="no">
+            <list-item class="task-listItem" for="{{ (index, task) in groupTaskList }}">
+                <div class="task-card">
+                    <div class="card-head">
+                        <div class="main-head">
+                            <text>{{ task.taskInfo.title }}</text>
+                        </div>
+                        <div class="sub-head">
+                            <text>{{ task.taskInfo.id }}</text>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <text>{{ task.taskInfo.instr }}</text>
+                    </div>
+                    <div class="card-foot">
+                        <text>{{ task.taskInfo.createTime }}</text>
+                    </div>
+                </div>
+            </list-item>
+        </list>
+    </refresh>
+</div>
+

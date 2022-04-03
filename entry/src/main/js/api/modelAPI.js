@@ -13,7 +13,7 @@ const getFormModelById=modelId=>get(APIS.modelByIdAPI,modelId)
 
 
 const modelAPI={
-    getFormModelById
+    getFormModelById,
 }
 
 export default modelAPI

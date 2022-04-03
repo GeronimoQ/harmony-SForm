@@ -9,11 +9,23 @@ const APIS={
     }
 }
 
+const getGroupTaskListAPI = {
+    url: table + '/getGroupTaskList',
+    method: 'GET',
+    param:{
+        groupId:''
+    }
+}
+
+
 const getTaskInfoById=params=>get(APIS.taskInfoByIdAPI,params)
+const getGroupTaskList=groupId=>get(getGroupTaskListAPI,groupId)
 
 const taskAPI={
-    getTaskInfoById
+    getTaskInfoById,
+    getGroupTaskList
 }
+
 
 
 export default taskAPI;

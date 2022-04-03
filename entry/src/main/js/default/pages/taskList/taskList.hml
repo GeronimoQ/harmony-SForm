@@ -1,0 +1,35 @@
+<div class="refresh-container">
+    <refresh refreshing="{{ refresh }}" onrefresh="refreshOp">
+        <list id="task-list" scrolleffect="no">
+            <list-item class="task-listItem" for="{{ (index, task) in groupTaskList }}">
+                <div class="task-card" onclick="jumpToDesigner({{task.taskInfo}})">
+                    <div class="card-head">
+                        <div class="main-head">
+                            <text>{{ task.taskInfo.title }}</text>
+                            <div if="{{task.taskInfo.disabled}}" id="disable-tag"></div>
+                            <image if="{{task.isNew}}" id="new-tag" src="/common/icons/moon.png" ></image>
+<!--                            #eef7f2-->
+                        </div>
+                        <div class="sub-head">
+                            <text style="text-align: center;">{{ task.taskInfo.id }}</text>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <text >{{ task.taskInfo.instr }}</text>
+                    </div>
+                    <div class="card-foot">
+                        <text>{{ task.taskInfo.createTime }}</text>
+                    </div>
+                </div>
+            </list-item>
+            <list-item  style="flex-direction: column;justify-content: center;align-items: center;" disabled="true">
+                <div style="flex-direction: column;margin-top: 50px;">
+                    <image style="position: absolute;width: 50px;height: 50px;" src="/common/icons/refresh.png"></image>
+                    <image style="width: 50px;height: 50px;margin-top: 35px;" src="/common/icons/pulldown.png"></image>
+                </div>
+                    
+            </list-item>
+        </list>
+    </refresh>
+</div>
+

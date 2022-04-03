@@ -19,10 +19,26 @@ const APIS={
         }
     }
 }
-
+//queryHistoryByUId
+const getHistoryAPI = {
+    url: table + '/queryHistoryByUId',
+    method: 'GET',
+    param:{
+        id:'userId'
+    }
+}
+//queryByUIdAndTId
+const getFilledDataAPI = {
+    url: table + '/queryByUIdAndTId',
+    method: 'GET',
+    param:{
+        userId:"",
+        taskId:""
+    }
+}
 
 
 const submitFillData=fillDataList=>post(APIS.add,fillDataList)
-
-
-export {submitFillData}
+const getFillHistory=id=>get(getHistoryAPI,id)
+const getFilledData=params=>get(getFilledDataAPI,params)
+export {submitFillData,getFillHistory,getFilledData}

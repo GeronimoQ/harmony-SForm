@@ -2,6 +2,7 @@ package com.example.learnmyapplication_ark;
 
 import com.example.learnmyapplication_ark.utils.Utils;
 import ohos.aafwk.ability.Ability;
+import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.ace.ability.AceAbility;
@@ -11,8 +12,15 @@ import ohos.eventhandler.EventHandler;
 import ohos.eventhandler.EventRunner;
 import ohos.hiviewdfx.HiLog;
 import ohos.hiviewdfx.HiLogLabel;
+import ohos.media.image.ImagePacker;
+import ohos.media.image.ImageSource;
+import ohos.media.image.PixelMap;
 import ohos.rpc.RemoteException;
+import ohos.utils.net.Uri;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
+import java.util.Base64;
 import java.util.concurrent.CountDownLatch;
 
 public class QrScanningServiceAbility implements LocalParticleAbility {
@@ -32,6 +40,10 @@ public class QrScanningServiceAbility implements LocalParticleAbility {
     private String photoUriString;
 
     private String QRDecode_str = null;
+    private String ImageDecode_str = null;
+
+    private final static int IMG_REQ_CODE = 1002;
+    private final static int QR_SCAN_REQ_CODE = 1001;
 
     public static LocalParticleAbility getInstance() {
         return INSTANCE;
@@ -46,7 +58,19 @@ public class QrScanningServiceAbility implements LocalParticleAbility {
                 .withBundleName("com.example.learnmyapplication_ark").withAbilityName("com.example.learnmyapplication_ark.ScanningQRAbility")
                 .build();
         intent.setOperation(operation);
-        abilityContext.startAbilityForResult(intent,1001);
+        abilityContext.startAbilityForResult(intent, QR_SCAN_REQ_CODE);
+    }
+
+    private void startImageSelectAbility() {
+        Intent intent = new Intent();
+        Operation operation = new Intent.OperationBuilder()
+                .withAction("android.intent.action.GET_CONTENT")
+                .build();
+        intent.setOperation(operation);
+        intent.addFlags(Intent.FLAG_NOT_OHOS_COMPONENT);
+        intent.setType("image/*");
+        abilityContext.startAbilityForResult(intent, IMG_REQ_CODE);
+
     }
 
     public static QrScanningServiceAbility getINSTANCE() {
@@ -66,13 +90,32 @@ public class QrScanningServiceAbility implements LocalParticleAbility {
     public void deregister(AceAbility ability) {
         abilityContext = null;
         LocalParticleAbility.super.deregister(ability);
-
         // 取消订阅
         try {
             CommonEventManager.unsubscribeCommonEvent(subscriber);
         } catch (RemoteException e) {
             HiLog.error(LABEL_LOG, "Exception occurred during unsubscribeCommonEvent invocation.");
         }
+    }
+
+
+    public String startToSelectImage() {
+
+        latch = new CountDownLatch(1); // 需要同步传递数据
+        System.out.println("APP LOG 1 调起系统页面:");
+        startImageSelectAbility();
+
+        try {
+            HiLog.info(LABEL_LOG, "等待中");
+            System.out.println("APP LOG 等待中");
+            latch.await();
+        } catch (InterruptedException e) {
+            HiLog.info(LABEL_LOG, "等待失败");
+            System.out.println("app log 等待失败");
+        }
+        System.out.println("APP LOG photoUriString" + ImageDecode_str);
+        return ImageDecode_str;
+        //callback.reply(photoUriString);
     }
 
     public String startToScanning() {
@@ -130,18 +173,62 @@ public class QrScanningServiceAbility implements LocalParticleAbility {
         @Override
         public void onReceiveEvent(CommonEventData commonEventData) {
             HiLog.info(LABEL_LOG, "已接收公共事件");
+//            用于耗时操作
 //            Boolean setImaDataResult = false;
+            System.out.println("out!!!!!!!!code:" + commonEventData.getCode() + "---------data：" + commonEventData.getData());
             if (commonEventData.getData() != null) {
+//               要求有数据返回的并处理的块
                 System.out.println("接收到数据：" + commonEventData.getData());
-                        if (!commonEventData.getData().equals("fail")) {
-//                            Uri uri = Uri.parse(commonEventData.getData());
-//                            long l = System.currentTimeMillis();
-//                            String fileName = String.valueOf(l);
-//                            setImaDataResult = utils.setImaData(uri, fileName);
-//                            photoUriString = "internal://app/" + String.valueOf(l) + ".jpg";
-//                            HiLog.info(LABEL_LOG, "js 访问图片路径：" + photoUriString);
-                              QRDecode_str = commonEventData.getData();
+                System.out.println("!!!!!!!!code:" + commonEventData.getCode() + "---------data：" + commonEventData.getData());
+                if (!commonEventData.getData().equals("fail")) {
+                    switch (commonEventData.getCode()) {
+//                IMG_REQ
+                        case IMG_REQ_CODE: {
+//                            传的是dataability
+                            //                    //读取图片
+                            DataAbilityHelper helper = DataAbilityHelper.creator(abilityContext);
+
+                            ImageSource imageSource = null;
+                            StringBuffer base64String = new StringBuffer("data:image/png;base64,");
+                            try {
+                                //读取图片
+                                FileDescriptor fd = helper.openFile(Uri.parse(commonEventData.getData()), "r");
+                                imageSource = ImageSource.create(fd, null);
+                                //创建位图
+                                PixelMap pixelMap = imageSource.createPixelmap(null);
+                                //设置图片控件对应的位图
+                                ImagePacker imagePacker = ImagePacker.create();
+                                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                ImagePacker.PackingOptions packingOptions = new ImagePacker.PackingOptions();
+                                imagePacker.initializePacking(byteArrayOutputStream, packingOptions);
+                                imagePacker.addImage(pixelMap);
+                                imagePacker.finalizePacking();
+                                byte[] bytes = byteArrayOutputStream.toByteArray();
+                                base64String.append(Base64.getEncoder().encodeToString(bytes));
+                                System.out.println("图片：" + base64String.toString());
+                            } catch (Exception e) {
+                                System.out.println("error   1" + e);
+                                e.printStackTrace();
+
+                            } finally {
+                                if (imageSource != null) {
+//                        System.out.println(base64String.toString());
+                                    ImageDecode_str=base64String.toString();
+                                    imageSource.release();
+                                }
+                            }
+                            break;
                         }
+//                QR_REQ
+                        case QR_SCAN_REQ_CODE: {
+                            HiLog.info(LABEL_LOG, "已经获得QR数据,REQ_CODE:" + commonEventData.getCode());
+                            QRDecode_str = commonEventData.getData();
+                            break;
+                        }
+//                default:
+//                    throw new IllegalStateException("Unexpected value: " + commonEventData.getCode());
+                    }
+                }
                 latch.countDown();
             } else {
                 HiLog.info(LABEL_LOG, "已接收公共事件，但数据为空");
@@ -163,6 +250,11 @@ public class QrScanningServiceAbility implements LocalParticleAbility {
 //                    result.finishCommonEvent();//结束事件
 //                }
 //            });
+
         }
+
+
     }
+
+
 }

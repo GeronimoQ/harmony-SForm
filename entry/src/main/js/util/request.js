@@ -53,18 +53,18 @@ function errorCodeHandler(data) {
         {
             //            服务器错误
             console.info("------------code:500---------------")
-            prompt.showToast({ message: data.result.message })
+            prompt.showToast({ message: res.message })
             break;
         }
         case 510:
         {
             console.info("------------code:510---------------")
             //            访问权限未通过
-            prompt.showToast({ message: data.result.message })
+            prompt.showToast({ message: res.message })
             break;
         }
         default:
-            prompt.showToast({ message: data.result.message })
+            prompt.showToast({ message: res.message })
     }
     return Promise.reject(data)
 }

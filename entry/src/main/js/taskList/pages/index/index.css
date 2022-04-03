@@ -1,0 +1,44 @@
+.refresh-container{
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#task-list{
+    width: 100%;
+    height: 100%;
+}
+
+.task-listItem{
+    background-color: coral;
+    width: 100%;
+    height: 150px;
+}
+
+.task-card{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-head{
+    width: 100%;
+    flex-direction: column;
+}
+.main-head{
+    width: 100%;
+}
+.sub-head{
+    width: 100%;
+    align-self: flex-end;
+}
+.card-content{
+    width: 100%;
+}
+.card-foot{
+    width: 100%;
+    align-self: flex-end;
+}

@@ -27,5 +27,7 @@ export default function createDesigner(pageInstance) {
             taskInfoHeadStyle: {}
         },
 
+        filledDataList:[]
+
     }
 }

@@ -27,8 +27,7 @@
     "name": ".MyApplication",
     "mainAbility": "com.example.learnmyapplication_ark.MainAbility",
     "deviceType": [
-      "phone",
-      "tablet"
+      "phone"
     ],
     "distro": {
       "deliveryWithInstall": true,
@@ -57,7 +56,8 @@
         "description": "$string:mainability_description",
         "label": "$string:entry_MainAbility",
         "type": "page",
-        "launchType": "standard"
+        "launchType": "standard",
+        "orientation": "portrait"
       },
       {
         "name": "com.example.learnmyapplication_ark.ScanningAbility",
@@ -65,7 +65,8 @@
         "description": "$string:scanningability_description",
         "label": "$string:entry_ScanningAbility",
         "type": "page",
-        "launchType": "standard"
+        "launchType": "standard",
+        "orientation": "portrait"
       },
       {
         "orientation": "unspecified",
@@ -84,6 +85,21 @@
         "icon": "$media:icon",
         "description": "$string:qrscanningserviceability_description",
         "type": "service"
+      },
+      {
+        "name": "com.example.learnmyapplication_ark.ImageSelectServiceAbility",
+        "icon": "$media:icon",
+        "description": "$string:imageselectserviceability_description",
+        "type": "service"
+      },
+      {
+        "orientation": "unspecified",
+        "name": "com.example.learnmyapplication_ark.ImageSelectAbility",
+        "icon": "$media:icon",
+        "description": "$string:imageselectability_description",
+        "label": "$string:entry_ImageSelectAbility",
+        "type": "page",
+        "launchType": "standard"
       }
     ],
     "reqPermissions": [
@@ -92,6 +108,8 @@
       },
       {
         "name": "ohos.permission.INTERNET"
+      },{
+        "name": "ohos.permission.READ_USER_STORAGE"
       }
     ],
     "js": [
@@ -102,7 +120,10 @@
           "pages/formDesigner/formDesigner",
           "pages/drawer/drawer",
           "pages/FComponent/FComponent",
-          "pages/FComponent/checkBoxWidget/checkBoxWidget"
+          "pages/FComponent/checkBoxWidget/checkBoxWidget",
+          "pages/taskList/taskList",
+          "pages/userOpPage/userOpPage",
+          "pages/FComponent/ImageWidegt/ImageWidegt"
         ],
         "name": "default",
         "window": {
@@ -128,6 +149,16 @@
         "window": {
           "designWidth": 720,
           "autoDesignWidth": true
+        }
+      },
+      {
+        "pages": [
+          "pages/index/index"
+        ],
+        "name": "taskList",
+        "window": {
+          "designWidth": 720,
+          "autoDesignWidth": false
         }
       }
     ]

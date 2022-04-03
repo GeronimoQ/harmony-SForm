@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div id="loginform-div">
+        <image id="avatar" src="../../common/icons/headAva.png"></image>
+
+        <form if="{{opType==='register'}}" id="loginForm" onsubmit='login'>
+
+            <text class="form-input-label">ID</text>
+            <input type='text' name='user' @change="userIdValueChange"></input>
+
+            <text class="form-input-label">姓名</text>
+            <input type='text' name='user' @change="nameValueChange"></input>
+
+            <text class="form-input-label">密码</text>
+            <input type='password' name='user' @change="newPasswordValueChange"></input>
+
+            <text class="form-input-label">确认密码</text>
+            <input type='password' name='password' @change="checkPasswordValueChange"></input>
+
+            <div style="width : 100%; height : 200px; margin-top : 50px; flex-direction : row;
+                    justify-content : space-around; font-size : 18px; font-weight : 500;">
+                <input type='submit' style="width : 60%;" onclick="register" >注 册</input>
+            </div>
+        </form>
+
+        <form if="{{opType==='changePwd'}}" id="loginForm" onsubmit='login'>
+
+            <text class="form-input-label">原密码</text>
+            <input type='password' name='password' @change="oldPasswordValueChange"></input>
+
+            <text class="form-input-label">新密码</text>
+            <input type='password' name='password' @change="newPasswordValueChange"></input>
+
+            <text class="form-input-label">确认密码</text>
+            <input type='password' name='password' @change="checkPasswordValueChange"></input>
+
+            <div style="width : 100%; height : 200px; margin-top : 50px; flex-direction : row;
+                    justify-content : space-around; font-size : 18px; font-weight : 500;">
+                <input type='submit' style="width : 60%;" onclick="changePwd">修 改</input>
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>

@@ -28,7 +28,6 @@ public class ScanningQRAbility extends Ability implements QRCodeView.ScanResultL
         qrCodeView.setScanResultListener(this);
 
         setUIContent(qrCodeView);
-
     }
 
     /**

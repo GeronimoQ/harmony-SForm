@@ -73,3 +73,11 @@ export function generateUUID(len, radix) {
 
     return uuid.join('');
 }
+
+export const deepClone = function (origin) {
+    if (origin === undefined) {
+        return undefined
+    }
+
+    return JSON.parse(JSON.stringify(origin))
+}

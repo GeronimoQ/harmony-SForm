@@ -10,7 +10,7 @@
     },
     {
       "name": "entry_MainAbility",
-      "value": "entry_MainAbility"
+      "value": "SForm"
     },
     {
       "name": "mainability_description",
@@ -43,6 +43,22 @@
     {
       "name": "qrscanningserviceability_description",
       "value": "hap sample empty service"
+    },
+    {
+      "name": "imageselectserviceability_description",
+      "value": "hap sample empty service"
+    },
+    {
+      "name": "imageselectability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "imageselectability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_ImageSelectAbility",
+      "value": "entry_ImageSelectAbility"
     }
   ]
 }

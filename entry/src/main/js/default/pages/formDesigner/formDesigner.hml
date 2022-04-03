@@ -5,12 +5,12 @@
 <!--    <button class="download" type="capsule" onclick="submitFillData" value="{{ $t('form.task.label.submit') }}"></button>-->
 
     <div class="form-widget">
-        <form-widget designer="{{ designer }}" temp-storage="{{tempStorage}}"></form-widget>
+        <form-widget designer="{{ designer }}" temp-storage="{{tempStorage}}" read-only="{{readOnly}}"></form-widget>
     </div>
 
-    <div show="{{ visible.taskInfoPanelVb }}" class="bottom-info">
+    <div if="{{!readOnly}}" show="{{ visible.taskInfoPanelVb }}" class="bottom-info">
         <div class="inner-card ">
-            <panel class="panel-div" id="taskInfoPanel" mode="{{ model.panelModelFlag }}" type="foldable"
+            <panel class="panel-div" id="taskInfoPanel" show="true" mode="{{ model.panelModelFlag }}" type="foldable"
                    miniheight="90px"
                    halfheight="250px"
                    style="background-color : #e9d7df;">

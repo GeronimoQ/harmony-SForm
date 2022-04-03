@@ -10,6 +10,9 @@ export default {
         },
         tempStorage:{
             default:null
+        },
+        readOnly:{
+            default:false
         }
     },
 

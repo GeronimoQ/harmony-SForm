@@ -2,10 +2,30 @@
 
 <div class="widget-container">
 
-    <form class="form-container" >
+    <form if="{{ ! readOnly }}" class="form-container">
         <list scrollpage="true" scrollbar="auto">
-            <list-item  for="{{widget in designer.modelInfo.itemList}}" tid="{{$idx}}" clickeffect="false">
-                <f-component widget="{{widget}}" designer="{{designer}}" temp-storage="{{tempStorage}}"></f-component>
+            <list-item for="{{ widget in designer.modelInfo.itemList }}" tid="{{ $idx }}" clickeffect="false">
+                <f-component widget="{{ widget }}" designer="{{ designer }}" temp-storage="{{ tempStorage }}">
+                </f-component>
+            </list-item>
+        </list>
+    </form>
+
+    <form else class="form-container">
+        <list scrollpage="true" scrollbar="auto">
+            <list-item for="{{ (index, widget) in designer.modelInfo.itemList }}" tid="{{ $idx }}" clickeffect="false">
+                <div class="widget-container">
+                    <label class="label" target="{{ widget.id }}">
+                        {{ widget.options.label }}
+                    </label>
+                    <block if="{{ widget.type == 'picture-upload' }}">
+                        <div style="width: 100%;height: 200fp;flex-direction : row;">
+                            <image for="{{ designer.filledDataList[index] }}" src="{{$item}}" style="object-fit : contain; width : 150fp; height : 150fp;"></image>
+                        </div>
+                    </block>
+                    <text else class="fill-widget">{{ designer.filledDataList[index] }}</text>
+
+                </div>
             </list-item>
         </list>
     </form>

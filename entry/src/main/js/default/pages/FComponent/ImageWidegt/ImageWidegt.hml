@@ -1,0 +1,21 @@
+<div class="widget-container">
+    <label class="label" target="{{ widgetConfig.id }}">
+            {{ widgetConfig.options.label }}
+    </label>
+
+    <div class="fill-widget">
+        <div class="item-div">
+<!--            若果是多选则一直显示，若不是当图片被加载则不予显示=> startSelect~ =>this.$refs.show=false  -->
+            <block  for="{{imgShowBase64}}">
+
+                <image show="{{startAdd}}" class="img-add" src="{{$item}}"></image>
+            </block>
+
+<!--            -->
+            <image show="{{imgShowBase64.length!==0}}"  class="img-add" src="/common/icons/delImg.png" onclick="delLast"></image>
+<!--            delImg-->
+            <image id="widgetConfig.id" class="img-add" src="/common/icons/addImg.png" onclick="addImage"></image>
+        </div>
+    </div>
+<!--    <canvas ref="canvas" style="width: 100%; height: 100px; "></canvas>-->
+</div>

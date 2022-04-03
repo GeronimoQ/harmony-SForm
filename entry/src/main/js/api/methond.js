@@ -41,7 +41,17 @@ function post(options, content) {
     })
 }
 
+function put(options, content) {
+    return httpReq.requestMethod(options.url, {
+        method: "PUT",
+        extraData: content,
+        connectTimeout: connectTimeout,
+        readTimeout: readTimeout,
+        header: header
+    })
+}
+
 
 export {
-    post,get
+    post,get,put
 }

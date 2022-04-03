@@ -12,8 +12,19 @@ import {dateFormat} from '../../../util/util.js'
  *
  */
 export default {
+    props: {
+        readOnly: {
+            default: false
+        },
+        designer: {
+            default: null
+        },
+        userInfo:{
+            default:null
+        }
+    },
     data: {
-        designer: createDesigner(this),
+        //        designer: createDesigner(this),
         //        taskId是通过路由传过来的！请在在 qrScanning时候做数据处理！
         visible: {
             taskInfoPanelVb: false,
@@ -26,22 +37,29 @@ export default {
         style: {
             sureBtnText_bgc: 'rgb(238, 132, 67)'
         },
-        tempStorage:tempStorage(this),
+        tempStorage: tempStorage(this),
         submitMessage: '填报数据分析中...'
     },
-    onInit(){
 
+    onActive(){
+//        this.requestModelInfo()
+//        this.tempStorage.initStorage();
+    },
+
+    onReady(){
+        this.requestModelInfo()
+        this.tempStorage.initStorage();
     },
 
     //    初始化任务，通过路由传过来的taskId,将网络请求taskInfo,将其注册到designer中
     onShow() {
-        if (this.designer) {
-            this.visible.taskInfoPanelVb = true
-            this.$element('taskInfoPanel').show()
-            this.tempStorage.initStorage();
-            this.requestModelInfo()
-        } else {
-            router.back();
+        if (!this.readOnly) {
+            if (this.designer) {
+                this.visible.taskInfoPanelVb = true
+                this.$element('taskInfoPanel').show()
+            } else {
+                router.back();
+            }
         }
     },
 
@@ -89,15 +107,15 @@ export default {
     },
 
     async checkFillDataBeforeSubmit() {
-//        let fillDataList = this.designer.fillData
-//        for (let fillD in fillDataList) {
-//            if (fillDataList[fillD].value == null) {
-//                let label = fillDataList[fillD].widgetCopy.options.label
-//                this.submitMessage = label + "项没有填写\r\n请填写后再提交"
-//                this.visible.loadImageVB = false
-//                return
-//            }
-//        }
+        let fillDataList = this.designer.fillData
+        for (let fillD in fillDataList) {
+            if (fillDataList[fillD].value == null) {
+                let label = fillDataList[fillD].widgetCopy.options.label
+                this.submitMessage = label + "项没有填写\r\n请填写后再提交"
+                this.visible.loadImageVB = false
+                return
+            }
+        }
         this.visible.loadImageVB = false
         this.visible.submitSureBtnDS = false
         this.submitMessage = "填报有效，请提交"
@@ -109,27 +127,30 @@ export default {
         this.checkFillDataBeforeSubmit()
     },
 
-   async sureSubmit_btn() {
+    async sureSubmit_btn() {
         let params = {
             "fillDate": dateFormat(new Date()),
             "formData": JSON.stringify(this.designer.fillData),
             "id": "",
             "taskId": this.designer.taskInfo.id,
-            "userId": "150"
+            "userId": this.userInfo.id
         }
-//        submitFillData(params).then(data => {
-//            prompt.showDialog({message:"填报成功"})
-//            this.tempStorage.submitUpdate()
-//        }).catch(_ => {
-//        })
-        console.info("@@@@@@@@ submit start")
-        this.tempStorage.submitUpdate()
-//        this.tempStorage.endurance()
+        await submitFillData(params).then(data => {
+            prompt.showDialog({
+                message: "填报成功"
+            })
+            console.info("@@@@@@@@ submit start")
+            this.tempStorage.submitUpdate()
 
-//        setTimeout(function(){router.back()},1000)
+        }).catch(_ => {
+
+        })
+        await this.tempStorage.endurance()
+        setTimeout(function () {
+            router.back()
+        }, 1000)
     },
     cancelSubmit_btn() {
         this.$element("sureDialog").close()
     },
-
 }
