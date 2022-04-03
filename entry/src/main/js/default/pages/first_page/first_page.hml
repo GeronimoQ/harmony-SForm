@@ -30,11 +30,18 @@
                     <image style="width : 30px; height : 30px;margin-top: 20px;object-fit: contain;" src="/common/icons/logout.png" onclick="logout"></image>
                 </block>
             </div>
+
             <div class="menu-content">
                 <div for="{{ listMenu }}" show="{{$item.id===1||$item.id===2?($item.id===2?!userInfo.joined:userInfo.joined):true}}" tid="{{ $item.id }}" on:click="menuSkip({{ $item.name }},{{ $item.id }})">
                     <image src="{{ $item.icon }}"></image>
                     <text onclick="menuSkip({{ $item.name }},{{ $item.id }}">{{ $item.name }}</text>
                 </div>
+            </div>
+
+            <div style="flex: 1;width: 100%;margin-top: 150px;align-self:flex-end;flex-direction: row;justify-content: center;align-items:center;color: lightblue;font-size: 14fp;;">
+                <text @click="jumpToGit(0)"> @Berg |</text>
+                <text @click="jumpToGit(2)"> @√6 |</text>
+                <text @click="jumpToGit(1)">@Tardis</text>
             </div>
         </div>
 

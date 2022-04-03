@@ -60,15 +60,6 @@
         "orientation": "portrait"
       },
       {
-        "name": "com.example.learnmyapplication_ark.ScanningAbility",
-        "icon": "$media:icon",
-        "description": "$string:scanningability_description",
-        "label": "$string:entry_ScanningAbility",
-        "type": "page",
-        "launchType": "standard",
-        "orientation": "portrait"
-      },
-      {
         "orientation": "unspecified",
         "name": "com.example.learnmyapplication_ark.ScanningQRAbility",
         "icon": "$media:icon",
@@ -85,21 +76,6 @@
         "icon": "$media:icon",
         "description": "$string:qrscanningserviceability_description",
         "type": "service"
-      },
-      {
-        "name": "com.example.learnmyapplication_ark.ImageSelectServiceAbility",
-        "icon": "$media:icon",
-        "description": "$string:imageselectserviceability_description",
-        "type": "service"
-      },
-      {
-        "orientation": "unspecified",
-        "name": "com.example.learnmyapplication_ark.ImageSelectAbility",
-        "icon": "$media:icon",
-        "description": "$string:imageselectability_description",
-        "label": "$string:entry_ImageSelectAbility",
-        "type": "page",
-        "launchType": "standard"
       }
     ],
     "reqPermissions": [
@@ -108,7 +84,8 @@
       },
       {
         "name": "ohos.permission.INTERNET"
-      },{
+      },
+      {
         "name": "ohos.permission.READ_USER_STORAGE"
       }
     ],
@@ -149,16 +126,6 @@
         "window": {
           "designWidth": 720,
           "autoDesignWidth": true
-        }
-      },
-      {
-        "pages": [
-          "pages/index/index"
-        ],
-        "name": "taskList",
-        "window": {
-          "designWidth": 720,
-          "autoDesignWidth": false
         }
       }
     ]

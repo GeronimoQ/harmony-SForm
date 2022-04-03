@@ -76,15 +76,24 @@ const changePwdAPI = {
 
     }
 }
+
+const getUserInfoAPI={
+    url: table + '/queryById',
+    method: 'GET',
+    param:{
+        id:''
+    }
+}
+
 const changePwd=params=>post(changePwdAPI,params)
 const register = (userInfo) => post(registerAPI, userInfo);
 const login = (loginInfo) => post(loginAPI, loginInfo);
 const addGroupForUser = userInfo => put(addGroupForUserAPI, userInfo)
 const listGroupPartner = groupId => get(listGroupUserAPI, groupId)
 const groupOption = optionInfo => put(userGroupOpAPI, optionInfo)
-
+const updateUserInfo=id=>get(getUserInfoAPI,id)
 export {
     register,changePwd,
-    login, addGroupForUser, listGroupPartner, groupOption
+    login, addGroupForUser, listGroupPartner, groupOption,updateUserInfo
 }
 

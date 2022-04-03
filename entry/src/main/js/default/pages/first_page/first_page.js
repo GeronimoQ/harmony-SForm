@@ -265,6 +265,50 @@ export default {
                 console.log('dialog cancel callback');
             },
         })
-
     },
+
+    jumpToGit(id) {
+        console.info("chose id:"+id)
+        let bergURI="https://github.com/berg-1";
+        let tardisURI="https://github.com/GeronimoQ"
+        let g6URI="https://github.com/redlin520"
+        switch(id){
+            case 0:{
+                this.startBrowser(bergURI)
+                break;
+            }
+            case 1:{
+                this.startBrowser(tardisURI)
+                break;
+            }
+            case 2:{
+                this.startBrowser(g6URI)
+                break;
+            }
+        }
+    },
+
+    startBrowser(uri){
+        var str = {
+            "want": {
+                "deviceId": "",
+                "bundleName": "",
+                "abilityName": "",
+                "uri":uri+"",
+                "type":"",
+                "options": {},
+                "action": "",
+                "parameters": {},
+                "entities": ["entity.system.browsable"]
+            },
+            "abilityStartSetting": {}
+        };
+        featureAbility.startAbility(str, (err, data) => {
+            if (err) {
+                console.error('Operation failed. Cause:' + JSON.stringify(err));
+                return;
+            }
+            console.info('Operation successful. Data: ' + JSON.stringify(data))
+        });
+    }
 }

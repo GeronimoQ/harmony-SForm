@@ -23,7 +23,7 @@ import java.io.FileDescriptor;
 import java.util.Base64;
 import java.util.concurrent.CountDownLatch;
 
-public class QrScanningServiceAbility implements LocalParticleAbility {
+public class QrScanningServiceAbility extends Ability implements LocalParticleAbility {
     private static final HiLogLabel LABEL_LOG = new HiLogLabel(3, 0xD001100, "QrScanningService");
     private Ability abilityContext;
     private static final QrScanningServiceAbility INSTANCE = new QrScanningServiceAbility();

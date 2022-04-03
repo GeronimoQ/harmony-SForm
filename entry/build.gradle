@@ -12,6 +12,15 @@ ohos {
             profile file('C:\\Users\\22390\\.ohos\\config\\auto_debug_learnmyapplication_ark_2850086000382761009.p7b')
             certpath file('C:\\Users\\22390\\.ohos\\config\\auto_debug_learnmyapplication_ark_2850086000382761009.cer')
         }
+        release {
+            storeFile file('D:\\HarmAppCSR\\SFORM\\SForm.p12')
+            storePassword '00000019B345E7E367AAD5F8F26761E968D98974B951ED9856FE31A6D11A8DF74E3E753EF73B05C1C3'
+            keyAlias = 'geronimo.tardis.SF'
+            keyPassword '0000001BEF98BBF77559AF1F273C4FF89A88898F3480BF9DCE9FE7E12A90BCAE6B65AB866977F3273F8F4E'
+            signAlg = 'SHA256withECDSA'
+            profile file('D:\\HarmAppCSR\\SFORM\\SFormRelease.p7b')
+            certpath file('D:\\HarmAppCSR\\SFORM\\SForm.cer')
+        }
     }
     compileSdkVersion 6
     defaultConfig {
